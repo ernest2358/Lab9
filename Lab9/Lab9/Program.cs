@@ -7,74 +7,73 @@ namespace OurClassLab
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Which student would you like to learn more about? Please enter a number.");
-            var input = int.Parse(Console.ReadLine());
-            var again = "";
-
             var students = new List<string>() { "John", "Susan", "Jill", "Tucker", "Wendy" };
 
+            var age = new List<int>();
+            age.Add(28);
+            age.Add(20);
+            age.Add(31);
+            age.Add(29);
+            age.Add(36);
 
-            //Cannot figure out how to take in the users input to index through students List to find student of users choice
-            for (int i = 0; i < students.Capacity; i++)
+            var favColor = new List<string>();
+            favColor.Add("blue");
+            favColor.Add("baby blue");
+            favColor.Add("purple");
+            favColor.Add("orange");
+            favColor.Add("red");
+
+            var hometown = new List<string>();
+            hometown.Add("Detoit, Mi");
+            hometown.Add("Oakland, California");
+            hometown.Add("Tulsa, Oklahoma");
+            hometown.Add("Seattle, Washington");
+            hometown.Add("Atlanta, Georgia");
+
+            var again = "";
+            var knowMore = "";
+            int yesMore;
+
+            do
             {
+                Console.WriteLine("Which student would you like to learn more about? Please enter a number.");
+                var input = int.Parse(Console.ReadLine());
+
                 Console.WriteLine("The student you have chosen is " + students[input]);
-                break;
-            }
-            do
-            {
-                var knowMore = "";
-                var yesMore = int.Parse("");
-                Console.WriteLine("Would you like to know more about " + students[input] + "? y/n?");
-                knowMore = Console.ReadLine();
-                if (knowMore == "y" || knowMore =="Y")
+
+                do
                 {
-                    Console.WriteLine("Would you like to know " + students[input] + " 1- age, 2- hometown, or 3- favorite color. (Please selcet numbers 1-3)");
-                    //how can dictionaries connect with list? (tried making key name same as student name)
-                    //thought of using swtich statment for knowMore
-                    if (yesMore == 1)
+                    Console.WriteLine("Would you like to know more about " + students[input] + "? y/n?");
+                    knowMore = Console.ReadLine();
+                    if (knowMore == "y" || knowMore == "Y")
                     {
+                        Console.WriteLine("Would you like to know " + students[input] + "'s 1- age, 2- hometown, or 3- favorite color. (Please selcet numbers 1-3)");
 
-                        Console.WriteLine("The student " + students[input] + "'s age is " + students[ho]);
+                        yesMore = int.Parse(Console.ReadLine());
+                        if (yesMore == 1)
+                        {
+                            Console.WriteLine(students[input] + "'s age is " + age[input] + ".");
+                        }
+                        else if (yesMore == 2)
+                        {
+                            Console.WriteLine(students[input] + "'s hometown is " + hometown[input] + ".");
+                        }
+                        else if (yesMore == 3)
+                        {
+                            Console.WriteLine(students[input] + "'s favorite color is " + favColor[input] + ".");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Input chosen is not listed above please chose options 1-3.");
+                        }
                     }
-                    else if (yesMore == 2)
-                    {
+                } while (knowMore == "y" || knowMore == "Y");
 
-                    }
-
-                }
-
-                Console.WriteLine("Would you like to continue? y/n?");
+                Console.WriteLine("Would you like to chose another student? y/n?");
                 again = Console.ReadLine();
             } while (again == "y" || again == "Y");
 
-            //As well not sure how to associate collection below with student List. Attempted to use student names as key words which assciated with ,output.
-            Dictionary<string, int> age = new Dictionary<string, int>();
-            age.Add("John", 28);
-            age.Add("Susan", 20);
-            age.Add("Jill", 31);
-            age.Add("Tucker", 29);
-            age.Add("Wendy", 36);
-
-            Dictionary<string, string> hometown = new Dictionary<string, string>();
-            hometown.Add("John", "Detoit, Mi");
-            hometown.Add("Susan", "Oakland, California");
-            hometown.Add("Jill", "Tulsa, Oklahoma");
-            hometown.Add("Tucker", "Seattle, Washington");
-            hometown.Add("Wendy", "Atlanta, Georgia");
-
-            Dictionary<string, string> favColor = new Dictionary<string, string>();
-            favColor.Add("John", "blue");
-            favColor.Add("Susan", "baby blue");
-            favColor.Add("Jill", "purple");
-            favColor.Add("Tucker", "orange");
-            favColor.Add("Wendy", "red");
-
-            //Of course all code should be placed into do while loop. Sat to sick to figure out code first. Or could use while loop.
-            do
-            {
-                Console.WriteLine("Would you like to continue? y/n?");
-                again = Console.ReadLine();
-            } while (again == "y" || again == "Y");
+            Console.WriteLine("Hope you had fun. Goodbye!");
         }
     }
 }
