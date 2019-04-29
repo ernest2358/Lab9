@@ -13,12 +13,39 @@ namespace OurClassLab
 
             var students = new List<string>() { "John", "Susan", "Jill", "Tucker", "Wendy" };
 
-            foreach (var student in students)
-            {
-               Console.WriteLine(student);
-            }
-            //Cannot figure out how to take in the users input to index through students List to find student of users choice
 
+            //Cannot figure out how to take in the users input to index through students List to find student of users choice
+            for (int i = 0; i < students.Capacity; i++)
+            {
+                Console.WriteLine("The student you have chosen is " + students[input]);
+                break;
+            }
+            do
+            {
+                var knowMore = "";
+                var yesMore = int.Parse("");
+                Console.WriteLine("Would you like to know more about " + students[input] + "? y/n?");
+                knowMore = Console.ReadLine();
+                if (knowMore == "y" || knowMore =="Y")
+                {
+                    Console.WriteLine("Would you like to know " + students[input] + " 1- age, 2- hometown, or 3- favorite color. (Please selcet numbers 1-3)");
+                    //how can dictionaries connect with list? (tried making key name same as student name)
+                    //thought of using swtich statment for knowMore
+                    if (yesMore == 1)
+                    {
+
+                        Console.WriteLine("The student " + students[input] + "'s age is " + students[ho]);
+                    }
+                    else if (yesMore == 2)
+                    {
+
+                    }
+
+                }
+
+                Console.WriteLine("Would you like to continue? y/n?");
+                again = Console.ReadLine();
+            } while (again == "y" || again == "Y");
 
             //As well not sure how to associate collection below with student List. Attempted to use student names as key words which assciated with ,output.
             Dictionary<string, int> age = new Dictionary<string, int>();
@@ -37,11 +64,12 @@ namespace OurClassLab
 
             Dictionary<string, string> favColor = new Dictionary<string, string>();
             favColor.Add("John", "blue");
-            favColor.Add("John", "baby blue");
-            favColor.Add("John", "purple");
-            favColor.Add("John", "orange");
-            favColor.Add("John", "red");
+            favColor.Add("Susan", "baby blue");
+            favColor.Add("Jill", "purple");
+            favColor.Add("Tucker", "orange");
+            favColor.Add("Wendy", "red");
 
+            //Of course all code should be placed into do while loop. Sat to sick to figure out code first. Or could use while loop.
             do
             {
                 Console.WriteLine("Would you like to continue? y/n?");
